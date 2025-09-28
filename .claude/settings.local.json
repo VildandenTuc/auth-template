@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(curl:*)",
+      "Bash(ACCESS_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3NTkwOTI1NzAsImV4cCI6MTc1OTE3ODk3MH0.ZR7WVWW1HN7LsaX-FjSR6NfM8XImxeQEybbm-IPZjiU\")",
+      "Bash(REFRESH_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoicmVmcmVzaCIsInN1YiI6ImFkbWluIiwiaWF0IjoxNzU5MDkyNTcwLCJleHAiOjE3NTk2OTczNzB9.7yPf4keJgxDMRHq9ag44tE0NA16MSn-FDZfGs8S6p-0\")",
+      "Bash(echo \"Token: $ACCESS_TOKEN\")",
+      "Bash(ACCESS_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3NTkwOTI2NjAsImV4cCI6MTc1OTE3OTA2MH0.kb0LcLfBMO5dT8cSdtZ7iVaLKoNbAYMHQIIusZD9_NE\")",
+      "Bash(USER_REFRESH_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoicmVmcmVzaCIsInN1YiI6InRlc3R1c2VyIiwiaWF0IjoxNTkwOTI3NTgsImV4cCI6MTc1OTY5NzU1OH0.COOR2VRKK9o6i62l6Y2t36rhEaifM19g9IWFmu9yecY\")",
+      "Bash(./mvnw:*)",
+      "Bash(ACCESS_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3NTkwOTMwMDIsImV4cCI6MTc1OTE3OTQwMn0.uIRIpBR7537iM5BGwKj0pG4dEiK5F9U7VtaCRS7G0t4\")",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(wmic process:*)",
+      "Bash(ACCESS_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3NTkwOTMyMTksImV4cCI6MTc1OTE3OTYxOX0.EwSJI0_qF8PDBfSpMuJNQA15dhfHppv5U3qbBC1Fg1c\")",
+      "Bash(NEW_ACCESS_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3NTkwOTMzODUsImV4cCI6MTc1OTE3OTc4NX0.sdQdDbN8d5SjGICYqvaIlwSvZjvC4O7m8oQHU_mH-j0\")",
+      "Bash(FINAL_ACCESS_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3NTkwOTM2NzIsImV4cCI6MTc1OTE4MDA3Mn0.c4yRYas5YWkfEMIqpVZrHuQCJeoPenx3kBXz5LvB0vQ\")",
+      "Bash(ACCESS_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3NTkxMDI3ODMsImV4cCI6MTc1OTE4OTE4M30.BdkJRS4hBQL0nQr_e2AfZI5jLcXM4vLqVV4cOsqiXYo\")",
+      "Bash(NEW_ACCESS_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3NTkxMDI3ODMsImV4cCI6MTc1OTE4OTE4M30.BdkJRS4hBQL0nQr_e2AfZI5jLcXM4vLqVV4cOsqiXYo\")",
+      "Bash(FINAL_ACCESS_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3NTkxMDI3ODMsImV4cCI6MTc1OTE4OTE4M30.BdkJRS4hBQL0nQr_e2AfZI5jLcXM4vLqVV4cOsqiXYo\")",
+      "Bash(USER_TOKEN=\"eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwic3ViIjoibmV3dXNlciIsImlhdCI6MTc1OTEwMzA1OSwiZXhwIjoxNzU5MTg5NDU5fQ.qvMdPeA8J-Sizarn7WkyvrUzITYnxTTPNuyZS-1F-Pw\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

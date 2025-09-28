@@ -1,0 +1,299 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-12-27T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "wrk_auth_template",
+      "_type": "workspace",
+      "name": "Auth Template API",
+      "description": "Sistema de autenticación JWT - Spring Boot Template"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "name": "Base Environment",
+      "data": {
+        "baseUrl": "http://localhost:8080/api",
+        "accessToken": "",
+        "refreshToken": ""
+      },
+      "dataPropertyOrder": {
+        "&": ["baseUrl", "accessToken", "refreshToken"]
+      }
+    },
+    {
+      "_id": "fld_auth",
+      "_type": "request_group",
+      "name": "🔑 Authentication",
+      "description": "Endpoints de autenticación pública"
+    },
+    {
+      "_id": "req_login",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "Login",
+      "method": "POST",
+      "url": "{{ _.baseUrl }}/auth/login",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"usernameOrEmail\": \"admin\",\n  \"password\": \"admin123\"\n}"
+      },
+      "tests": [
+        {
+          "type": "response-code",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "_id": "req_register",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "Register",
+      "method": "POST",
+      "url": "{{ _.baseUrl }}/auth/register",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"testuser\",\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\",\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\"\n}"
+      }
+    },
+    {
+      "_id": "req_refresh",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "Refresh Token",
+      "method": "POST",
+      "url": "{{ _.baseUrl }}/auth/refresh",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"refreshToken\": \"{{ _.refreshToken }}\"\n}"
+      }
+    },
+    {
+      "_id": "req_me",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "Get Current User",
+      "method": "GET",
+      "url": "{{ _.baseUrl }}/auth/me",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.accessToken }}"
+        }
+      ]
+    },
+    {
+      "_id": "req_change_password",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "Change Password",
+      "method": "POST",
+      "url": "{{ _.baseUrl }}/auth/change-password",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.accessToken }}"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"currentPassword\": \"admin123\",\n  \"newPassword\": \"newpassword123\"\n}"
+      }
+    },
+    {
+      "_id": "fld_users",
+      "_type": "request_group",
+      "name": "👥 Users",
+      "description": "Gestión de usuarios"
+    },
+    {
+      "_id": "req_get_profile",
+      "_type": "request",
+      "parentId": "fld_users",
+      "name": "Get My Profile",
+      "method": "GET",
+      "url": "{{ _.baseUrl }}/users/profile",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.accessToken }}"
+        }
+      ]
+    },
+    {
+      "_id": "req_update_profile",
+      "_type": "request",
+      "parentId": "fld_users",
+      "name": "Update My Profile",
+      "method": "PUT",
+      "url": "{{ _.baseUrl }}/users/profile",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.accessToken }}"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"updated@example.com\",\n  \"firstName\": \"Updated\",\n  \"lastName\": \"Name\"\n}"
+      }
+    },
+    {
+      "_id": "req_get_all_users",
+      "_type": "request",
+      "parentId": "fld_users",
+      "name": "Get All Users (Admin)",
+      "method": "GET",
+      "url": "{{ _.baseUrl }}/users?page=0&size=10&sortBy=id&sortDir=ASC",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.accessToken }}"
+        }
+      ]
+    },
+    {
+      "_id": "req_create_user",
+      "_type": "request",
+      "parentId": "fld_users",
+      "name": "Create User (Admin)",
+      "method": "POST",
+      "url": "{{ _.baseUrl }}/users",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.accessToken }}"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"newuser\",\n  \"email\": \"newuser@example.com\",\n  \"password\": \"password123\",\n  \"firstName\": \"New\",\n  \"lastName\": \"User\",\n  \"roles\": [\"USER\"]\n}"
+      }
+    },
+    {
+      "_id": "fld_roles",
+      "_type": "request_group",
+      "name": "🛡️ Roles",
+      "description": "Gestión de roles"
+    },
+    {
+      "_id": "req_get_all_roles",
+      "_type": "request",
+      "parentId": "fld_roles",
+      "name": "Get All Roles",
+      "method": "GET",
+      "url": "{{ _.baseUrl }}/roles",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.accessToken }}"
+        }
+      ]
+    },
+    {
+      "_id": "req_get_roles_simple",
+      "_type": "request",
+      "parentId": "fld_roles",
+      "name": "Get Roles Simple",
+      "method": "GET",
+      "url": "{{ _.baseUrl }}/roles/simple",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.accessToken }}"
+        }
+      ]
+    },
+    {
+      "_id": "req_create_role",
+      "_type": "request",
+      "parentId": "fld_roles",
+      "name": "Create Role (Admin)",
+      "method": "POST",
+      "url": "{{ _.baseUrl }}/roles",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.accessToken }}"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"EDITOR\",\n  \"description\": \"Usuario con permisos de edición\"\n}"
+      }
+    },
+    {
+      "_id": "fld_system",
+      "_type": "request_group",
+      "name": "⚙️ System",
+      "description": "Endpoints del sistema"
+    },
+    {
+      "_id": "req_health",
+      "_type": "request",
+      "parentId": "fld_system",
+      "name": "Health Check",
+      "method": "GET",
+      "url": "{{ _.baseUrl }}/health"
+    },
+    {
+      "_id": "req_info",
+      "_type": "request",
+      "parentId": "fld_system",
+      "name": "App Info",
+      "method": "GET",
+      "url": "{{ _.baseUrl }}/info"
+    },
+    {
+      "_id": "req_stats",
+      "_type": "request",
+      "parentId": "fld_system",
+      "name": "System Stats (Admin)",
+      "method": "GET",
+      "url": "{{ _.baseUrl }}/admin/stats",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.accessToken }}"
+        }
+      ]
+    }
+  ]
+}

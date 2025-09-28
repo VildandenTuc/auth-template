@@ -1,0 +1,58 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: auth-template
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/auth_template_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Tucuman
+    username: root
+    password: '@Vildandenaca4'
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    open-in-view: false
+
+  flyway:
+    enabled: false
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+    sql-migration-suffixes: .sql
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: America/Argentina/Tucuman
+
+  profiles:
+    active: dev
+
+logging:
+  level:
+    com.vildanden.auth_template: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.authentication: DEBUG
+    org.springframework.security.web: DEBUG
+    org.flywaydb: INFO
+
+# JWT Configuration
+jwt:
+  secret: MyVerySecureJWTSecretKeyForAuthTemplateApplication2025WithMinimum256BitsAndMoreCharactersToEnsureProperLength
+  expiration: 86400000 # 24 hours in milliseconds
+  refresh-expiration: 604800000 # 7 days in milliseconds
+
+# Custom Application Properties
+app:
+  name: Auth Template API
+  version: 1.0.0
+  description: Sistema de autenticación JWT reutilizableenticación JWT reutilizable
